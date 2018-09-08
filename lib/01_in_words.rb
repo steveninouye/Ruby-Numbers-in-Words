@@ -47,10 +47,14 @@ class Fixnum
                         .delete_if{|x| !x }.all?{|x| x== "0"}
 
                 # if there is one digit that is not zero, add corresponding unit
-                result.unshift("trillion") if idx == 12 && !is_three_digits_zero
-                result.unshift("billion") if idx == 9 && !is_three_digits_zero
-                result.unshift("million") if idx == 6 && !is_three_digits_zero
-                result.unshift("thousand") if idx == 3 && !is_three_digits_zero
+                result.unshift("trillion") if idx == 12 && 
+                    !is_three_digits_zero
+                result.unshift("billion") if idx == 9 && 
+                    !is_three_digits_zero
+                result.unshift("million") if idx == 6 && 
+                    !is_three_digits_zero
+                result.unshift("thousand") if idx == 3 && 
+                    !is_three_digits_zero
 
                 # skip to next iteration if there is an element in the next digit
                 if !digits[idx+1]
@@ -103,5 +107,5 @@ class Fixnum
     def get_digits
         self.to_i.to_s.chars.reverse
     end
-    
+
 end
